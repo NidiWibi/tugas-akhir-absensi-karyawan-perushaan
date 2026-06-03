@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (empty($_SESSION['id_user'])) {
-  header('Location: htdocs/index.php?pesan=login');
+  header('Location: ../../index.php?pesan=login');
   exit;
 }
 
@@ -43,14 +43,14 @@ function canAccessDivision(int $idDivisi): bool {
  */
 function requireDivision(int $idDivisi) {
   if (!canAccessDivision($idDivisi)) {
-    header('Location: /tugaspratikum/pages/karyawan/karyawan.php?pesan=forbidden');
+    header('Location: ../../pages/karyawan/karyawan.php?pesan=forbidden');
     exit;
   }
 }
 
 function requireRole(array $allowedRoles) {
   if (!in_array(getAppRole(), $allowedRoles, true)) {
-    header('Location: /pages/dashboard/dashboard.php?pesan=unauthorized');
+    header('Location: ../../pages/dashboard/dashboard.php?pesan=unauthorized');
     exit;
   }
 }
@@ -58,32 +58,32 @@ function requireRole(array $allowedRoles) {
 function getNavItems(): array {
   $role = getAppRole();
   $items = [
-    ['url' => '/pages/dashboard/dashboard.php', 'label' => 'Beranda', 'key' => 'dashboard'],
+    ['url' => '../../pages/dashboard/dashboard.php', 'label' => 'Beranda', 'key' => 'dashboard'],
   ];
 
   if ($role === 'admin') {
     $items = array_merge($items, [
-      ['url' => '/pages/karyawan/karyawan.php', 'label' => 'Karyawan', 'key' => 'karyawan'],
-      ['url' => '/pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
-      ['url' => '/pages/penggajian/komponen-gaji.php', 'label' => 'Komponen', 'key' => 'komponen'],
-      ['url' => '/pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
-      ['url' => '/pages/laporan/laporan.php', 'label' => 'Laporan', 'key' => 'laporan'],
+      ['url' => '../../pages/karyawan/karyawan.php', 'label' => 'Karyawan', 'key' => 'karyawan'],
+      ['url' => '../../pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
+      ['url' => '../../pages/penggajian/komponen-gaji.php', 'label' => 'Komponen', 'key' => 'komponen'],
+      ['url' => '../../pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
+      ['url' => '../../pages/laporan/laporan.php', 'label' => 'Laporan', 'key' => 'laporan'],
     ]);
   } elseif ($role === 'keuangan') {
     $items = array_merge($items, [
-      ['url' => '/pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
-      ['url' => '/pages/penggajian/komponen-gaji.php', 'label' => 'Komponen', 'key' => 'komponen'],
-      ['url' => '/pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
-      ['url' => '/pages/laporan/laporan.php', 'label' => 'Laporan', 'key' => 'laporan'],
+      ['url' => '../../pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
+      ['url' => '../../pages/penggajian/komponen-gaji.php', 'label' => 'Komponen', 'key' => 'komponen'],
+      ['url' => '../../pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
+      ['url' => '../../pages/laporan/laporan.php', 'label' => 'Laporan', 'key' => 'laporan'],
     ]);
   } elseif ($role === 'operasional' || $role === 'pergudangan') {
     $items = array_merge($items, [
-      ['url' => '/pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
-      ['url' => '/pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
+      ['url' => '../../pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
+      ['url' => '../../pages/penggajian/gaji.php', 'label' => 'Gaji', 'key' => 'gaji'],
     ]);
   } else {
     $items = array_merge($items, [
-      ['url' => '/pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
+      ['url' => '../../pages/absensi/absensi.php', 'label' => 'Absensi', 'key' => 'absensi'],
     ]);
   }
 

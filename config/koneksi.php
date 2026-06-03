@@ -3,8 +3,8 @@ date_default_timezone_set('Asia/Makassar');
 
 $host = 'localhost';
 $user = 'root';
-$pass = 'PASSWOD_ASLI';
-$db = 'sistem_penggajian';
+$pass = '';
+$db   = 'sistem_penggajian';
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 

@@ -42,17 +42,17 @@ $rekapGaji = mysqli_query(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laporan WeebeMart</title>
-  <link rel="icon" href="/assets/weebemart.ico">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="../../assets/weebemart.ico">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="/pages/dashboard/dashboard.php"><span class="brand-icon">WM</span><span>Weebe<span>Mart</span></span></a>
+      <a class="brand" href="../../pages/dashboard/dashboard.php"><span class="brand-icon">WM</span><span>Weebe<span>Mart</span></span></a>
       <ul class="nav-links">
         <?= renderNavLinks('laporan'); ?>
       </ul>
-      <a class="nav-button" href="/pages/auth/logout.php">Keluar</a>
+      <a class="nav-button" href="../../pages/auth/logout.php">Keluar</a>
     </nav>
   </header>
 

@@ -51,9 +51,9 @@ if ($isAdmin) {
     ['value' => rupiah($totalGaji), 'text' => 'Total Gaji Bersih'],
   ];
   $actions = [
-    ['url' => '/pages/karyawan/karyawan.php', 'label' => 'Kelola Karyawan'],
-    ['url' => '/pages/absensi/absensi.php', 'label' => 'Kelola Absensi'],
-    ['url' => '/pages/penggajian/gaji.php', 'label' => 'Akses Gaji'],
+    ['url' => '../../pages/karyawan/karyawan.php', 'label' => 'Kelola Karyawan'],
+    ['url' => '../../pages/absensi/absensi.php', 'label' => 'Kelola Absensi'],
+    ['url' => '../../pages/penggajian/gaji.php', 'label' => 'Akses Gaji'],
   ];
 } elseif ($isFinance) {
   $pageTitle = 'Dashboard Keuangan';
@@ -65,9 +65,9 @@ if ($isAdmin) {
     ['value' => $totalDivisi, 'text' => 'Total Divisi'],
   ];
   $actions = [
-    ['url' => '/pages/absensi/absensi.php', 'label' => 'Periksa Absensi'],
-    ['url' => '/pages/penggajian/gaji.php', 'label' => 'Hitung Gaji'],
-    ['url' => '/pages/penggajian/komponen-gaji.php', 'label' => 'Atur Komponen'],
+    ['url' => '../../pages/absensi/absensi.php', 'label' => 'Periksa Absensi'],
+    ['url' => '../../pages/penggajian/gaji.php', 'label' => 'Hitung Gaji'],
+    ['url' => '../../pages/penggajian/komponen-gaji.php', 'label' => 'Atur Komponen'],
   ];
 } else {
   $pageTitle = 'Dashboard Karyawan';
@@ -79,7 +79,7 @@ if ($isAdmin) {
     ['value' => $totalAbsensi, 'text' => 'Total Absensi'],
   ];
   $actions = [
-    ['url' => 'pages/absensi/absensi.php', 'label' => 'Buka Absensi'],
+    ['url' => '../../pages/absensi/absensi.php', 'label' => 'Buka Absensi'],
   ];
 }
 ?>
@@ -89,13 +89,13 @@ if ($isAdmin) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= e($pageTitle); ?></title>
-  <link rel="icon" href="/assets/weebemart.ico">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="../../assets/weebemart.ico">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="/pages/dashboard/dashboard.php" aria-label="WeebeMart">
+      <a class="brand" href="../../pages/dashboard/dashboard.php" aria-label="WeebeMart">
         <span class="brand-icon">WM</span>
         <span>Weebe<span>Mart</span></span>
       </a>
@@ -104,7 +104,7 @@ if ($isAdmin) {
         <?= renderNavLinks('dashboard'); ?>
       </ul>
 
-      <a class="nav-button" href="/pages/auth/logout.php">Keluar</a>
+      <a class="nav-button" href="../../pages/auth/logout.php">Keluar</a>
     </nav>
   </header>
 
@@ -139,7 +139,7 @@ if ($isAdmin) {
       <section class="content-card">
         <div class="section-heading">
           <h2>Aktivitas Terbaru</h2>
-          <a class="small-button" href="/pages/absensi/absensi.php">Lihat Absensi</a>
+          <a class="small-button" href="../../pages/absensi/absensi.php">Lihat Absensi</a>
         </div>
         <div class="table-wrap">
           <table>

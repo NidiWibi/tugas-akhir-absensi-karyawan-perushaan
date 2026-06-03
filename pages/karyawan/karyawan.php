@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jabatan = trim($_POST['jabatan'] ?? '');
     $alamat = trim($_POST['alamat'] ?? '');
     $tanggal_masuk = $_POST['tanggal_masuk'] ?? date('Y-m-d');
-    $status_kerja = $_POST['status_kerja'] ?? 'Tetap';
+    $status_kerja = $_POST['status_kerja'] ?? 'Aktif';
 
     if (!isAdmin()) {
       $id_divisi = isset($_SESSION['id_divisi']) ? (int) $_SESSION['id_divisi'] : 0;
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jabatan = trim($_POST['jabatan'] ?? '');
     $alamat = trim($_POST['alamat'] ?? '');
     $tanggal_masuk = $_POST['tanggal_masuk'] ?? '';
-    $status_kerja = $_POST['status_kerja'] ?? 'Tetap';
+    $status_kerja = $_POST['status_kerja'] ?? 'Aktif';
 
     if (!isAdmin()) {
       $id_divisi = isset($_SESSION['id_divisi']) ? (int) $_SESSION['id_divisi'] : 0;
@@ -161,17 +161,17 @@ if (isAdmin()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Karyawan</title>
-  <link rel="icon" href="/assets/weebemart.ico">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="../../assets/weebemart.ico">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="/pages/dashboard/dashboard.php"><span class="brand-icon">WM</span><span>Weebe<span>Mart</span></span></a>
+      <a class="brand" href="../../pages/dashboard/dashboard.php"><span class="brand-icon">WM</span><span>Weebe<span>Mart</span></span></a>
       <ul class="nav-links">
         <?= renderNavLinks('karyawan'); ?>
       </ul>
-      <a class="nav-button" href="/pages/auth/logout.php">Keluar</a>
+      <a class="nav-button" href="../../pages/auth/logout.php">Keluar</a>
     </nav>
   </header>
 
@@ -251,7 +251,7 @@ if (isAdmin()) {
         </label>
         <label>Status Kerja
           <select name="status_kerja" required>
-            <option value="Tetap">Tetap</option>
+            <option value="Aktif">Aktif</option>
             <option value="Kontrak">Kontrak</option>
             <option value="Nonaktif">Nonaktif</option>
           </select>
@@ -320,7 +320,7 @@ if (isAdmin()) {
             <?php while ($row = mysqli_fetch_assoc($karyawan)) : ?>
               <?php
                 $statusClass = match($row['status_kerja']) {
-                  'Tetap' => 'success',
+                  'Aktif' => 'success',
                   'Kontrak' => 'warning',
                   default => 'danger',
                 };
@@ -392,7 +392,7 @@ if (isAdmin()) {
             </label>
             <label>Status Kerja
               <select name="status_kerja" id="edit_status_kerja" required>
-                <option value="Tetap">Tetap</option>
+                <option value="Aktif">Aktif</option>
                 <option value="Kontrak">Kontrak</option>
                 <option value="Nonaktif">Nonaktif</option>
               </select>
